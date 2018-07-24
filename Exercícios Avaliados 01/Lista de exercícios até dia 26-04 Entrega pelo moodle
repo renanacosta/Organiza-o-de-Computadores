@@ -1,0 +1,43 @@
+Lista de exercícios até dia 26, Entrega pelo moodle.
+
+ Converter os seguintes algoritmos em código assembler do Neander
+
+1 )
+
+  c= 4
+
+ if ( c> 0 ) c ++
+
+2) a = 1
+
+    b = 2
+
+    c  = 3
+
+  while (a < 6){
+
+      d = a + b + c
+
+      a++;
+
+}
+
+ 3) x = 4
+
+      y = 6
+
+       if (x>y)  x = 0
+
+      else y = 0;
+
+4)  
+
+x = 9
+
+while (x!=0){
+
+    x--;
+
+   y = y + x;
+
+}

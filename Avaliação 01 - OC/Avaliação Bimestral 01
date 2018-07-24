@@ -1,0 +1,20 @@
+Prezados,
+
+o trabalho do primeiro bimestre será referente à multiplicação de dois valores no neander.
+
+Entrada de dados:
+ 
+endereço 128 - > primeira parcela
+endereço 129 -> segunda parcela
+resultado será armazenado em 130.
+
+O que é uma multiplicação sem este recurso no neander?
+
+exemplo 4X3 =   4+4+4
+
+5X4 - 5+5+5+5.
+
+
+Desenvolver o programa no simulador neander.
+
+Em duplas!!

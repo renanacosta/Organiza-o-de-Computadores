@@ -1,0 +1,33 @@
+Vale um ponto a mais no bimestre
+b=5;
+a=3;
+c=7;
+if(c > b+a) c=1
+else c=0
+eduardo.briao@riogrande.ifrs.edu.br
+
+IDA 133				P	C			
+                              a   128   0
+STA130                        b   129   0
+TZ IF– FALHA                  c   130   0
+LDA 128                       3   131   3
+STA131                        5   132   5
+LDA 128                       7   133   7
+STA 132                       0   134   0
+ADD 131                       1   135   1
+ADD 132
+LDA 134
+STA 130
+JN IF-OK
+LDA 128
+STA 131
+LDA 128
+STA 132
+ADD 131
+ADD 132
+LDA 135
+STA 132
+HLT
+
+                                                                                     
+

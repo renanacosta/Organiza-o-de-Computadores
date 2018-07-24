@@ -1,0 +1,41 @@
+1 - Fazer a multiplicação de dois valores usando apenas somas (como no trabalho do neander)
+
+Inicialização dos valores usando variáveis e o próprio código do neander.
+
+2 - o usuário deverá digitar 10 valores. (use inputdialog). Conte quantos números iguais a 3 e 5 existem.
+
+Imprimir o valor na tela
+
+3- Conte quantos números pares existem na sequencia inserida pelo usuário. São 6 valores para leitura.
+
+4 - Calcule quantos números menores que 10 existem em um vetor já inicializado, com 5 valores.
+
+exemplo:
+
+.text
+
+meu_vetor: .word 4,7,9,12,13
+
+tam_vetor: .word 5
+
+5 - entre com os dados de dois vetores. Calcule a soma deles. e armazene em um outro vetor E depois o seu total. vetores de tamanho 4
+
+Entre com inputdialog.
+
+v1: 1,2,3,4
+
+v2: 5,6,7,8
+
+v3: 6,8,10,12
+
+somatorio de v3: 36
+
+dica: inicializar v3 assim
+
+.text
+
+v3: .word 0,0,0,0
+
+ou
+
+v3: .space 128

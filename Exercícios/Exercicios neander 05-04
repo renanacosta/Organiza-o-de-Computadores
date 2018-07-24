@@ -1,0 +1,130 @@
+
+Converter os seguintes algoritmos abaixo em Assembler de Neander
+
+1) 
+  a=1
+  if (a>1) a = 0
+
+2) a=4; b=6;              a-> 128    1 -> 131
+   if (b>a) c =6;         b-> 129    6 -> 132
+   else c=1;              c-> 130    4 -> 133
+
+LDA 133
+STA 128; a=4;
+LDA 132
+STA 129; b=6;
+; if (b>a) ->  b-a > 0  ...  a-b < 0
+LDA 129; b
+NOT
+ADD 131;   -b
+ADD 128;  (a-b)
+JN FAZ_IF
+LDA 131; 
+STA 130; c=1;
+JMP FIM
+FAZ_IF:
+LDA 132
+STA 130; c=6;
+FIM:
+HLT
+
+
+3) a=0;                       a-> 128
+    while (a<10){             1-> 129
+       a++;                   10-> 130
+    }                         0-> 131
+    
+LDA 131; 
+STA 128;
+; (a<10) -> -a>-10 -> 10-a>0  ->  a-10 <0
+INICIO_WHILE:
+LDA 130
+NOT
+ADD 129; ac = -10
+ADD 128; ( a-10 )
+JN WHILE
+JMP FIM
+WHILE:
+LDA 128;
+ADD 129
+STA 128; // a++;
+JMP INICIO_WHILE
+
+FIM:
+HLT
+
+
+4) a=10;              a-> 128
+   c=5;               c-> 129
+   while (a>0){       5-> 130
+      a--;            10-> 131
+      c=c+5;          1->132
+   }
+LDA 131;
+STA 128; a=10
+LDA 130
+STA 129; c=5;
+INICIO_WHILE:
+; (-a<0)
+LDA 128
+NOT
+ADD 132 //-a
+JN WHILE
+JMP FIM
+WHILE:
+   LDA 132
+   NOT
+   ADD 132// AC = -1
+   ADD 128// AC = -1 + a
+   STA 128; // a = a - 1;
+   LDA 130;
+   ADD 129; AC = 5+c
+   STA 129; c = c + 5;
+JMP INICIO_WHILE
+FIM:
+HLT
+
+5) c=1;                         c-> 128
+   for (i=0;i<=10;i+=2){        i-> 129
+	  c = c + i;                0->130
+   }                            1->131
+                                2->132
+                                10->133
+
+LDA 131
+STA 128 ; c=1
+LDA 130
+STA 129; i=0;
+INICIO_FOR:
+;(i<=10) ->  (i-10 <=0)
+LDA 133
+NOT
+ADD 131; -10
+ADD 129;
+JN FOR
+JZ FOR
+JMP FIM
+FOR:
+  LDA 129
+  ADD 128
+  STA 128 ; c = c + i;
+  LDA 129 ; AC = i 
+  ADD 132 ; AC= i +2;
+  STA 129;  i = i + 2;
+JMP INICIO_FOR
+FIM:
+HLT
+
+
+
+
+
+
+
+
+
+
+
+
+
+

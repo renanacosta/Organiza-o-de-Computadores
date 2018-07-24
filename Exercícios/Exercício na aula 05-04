@@ -1,0 +1,63 @@
+Exercício na aula
+
+x = 3
+
+while (x < 6){
+
+x ++;
+
+y = y + 2;
+
+}
+
+x 128 0
+
+y 129 0
+
+1 130 1
+
+2 131 2
+
+3 132 3
+
+6 133 6
+
+LDA 132
+
+STA 128 ; x = 3
+
+WHILE:
+
+; x < 6 0 < 6 – x → 0> x-6
+
+LDA 133 ; AC = 6 ; binario : 0 0 0 0 0 1 1 0
+
+NOT; 1 1 1 1 1 0 0 1
+
+ADD 130 ; AC = -6; 1 1 1 1 1 0 1 0
+
+ADD 128 ; AC = -6 + x
+
+JN EXECUTO_WHILE
+
+JMP FIM
+
+EXECUTO_WHILE :
+
+LDA 128;
+
+ADD 130; AC = X + 1
+
+STA 128 ; x++
+
+LDA 129;
+
+ADD 131; ac = y+ 2
+
+STA 129 ; y = y + 2;
+
+JMP WHILE
+
+FIM:
+
+HLT
